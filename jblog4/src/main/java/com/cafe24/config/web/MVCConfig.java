@@ -66,7 +66,6 @@ public class MVCConfig extends WebMvcConfigurerAdapter {
 		converter.setSupportedMediaTypes(Arrays.asList(new MediaType("application", "html", Charset.forName("UTF-8"))));
 
 		return converter;
-
 	}
 
 	@Override

@@ -43,32 +43,7 @@
 
 	<!-- 서블릿 컨테이너의 디폴트 서블릿 위임 핸들러 -->
 	<mvc:default-servlet-handler />
-
-
-	<!-- Interceptors -->
-	<mvc:interceptors>
-		<mvc:interceptor>
-			<mvc:mapping path="/user/auth" />
-			<bean class="com.cafe24.security.AuthLoginInterceptor" />
-		</mvc:interceptor>
-		<mvc:interceptor>
-			<mvc:mapping path="/user/logout" />
-			<bean class="com.cafe24.security.AuthLogoutInterceptor" />
-		</mvc:interceptor>
-		<mvc:interceptor>
-			<mvc:mapping path="/**/**/admin/**" />
-			<bean class="com.cafe24.security.AuthBlogInterceptor" />
-		</mvc:interceptor>
-		<mvc:interceptor>
-			<mvc:mapping path="/**" />
-			<mvc:exclude-mapping path="/user/auth" />
-			<mvc:exclude-mapping path="/user/logout" />
-			<mvc:exclude-mapping path="/assets/**" />
-			<mvc:exclude-mapping path="/**/admin/**"/>
-			<bean class="com.cafe24.security.AuthInterceptor" />
-		</mvc:interceptor>
-	</mvc:interceptors>
-
+	
 
 	<!-- Controller Scanning 하는 base package 지정 -->
 	<context:annotation-config />
