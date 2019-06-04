@@ -12,6 +12,6 @@ Java configuration + Initializer
 > Java configuration에서 사용하는 설정법과 다르게 설정함. **수정해야함**
 > web.xml 필요 없음
 
-## jblog5 (springboot project에 추가 예정)
+## jblog5
 Spring Boot
 > Java configuration, application.properties
