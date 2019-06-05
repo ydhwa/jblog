@@ -17,6 +17,8 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<org.springframework-version>4.3.1.RELEASE</org.springframework-version>
+		
+		<src.profile.dir>src/development/java</src.profile.dir>
 	</properties>
 
 
@@ -163,23 +165,21 @@
 	<profiles>
 		<profile>
 			<id>production</id>
+			<properties>
+				<src.profile.dir>src/production/java</src.profile.dir>
+			</properties>
 			<build>
-				<resources>
-					<resource>
-						<directory>${project.basedir}/src/production/java</directory>	
-						<includes>
-							<include>**/*.java</include>
-						</includes>
-						<targetPath>WEB-INF/classes</targetPath>
-					</resource>
-					<resource>
-						<directory>${project.basedir}/src/main/resources</directory>
-						<excludes>
-							<exclude>**/*.java</exclude>
-						</excludes>
-					</resource>
-				</resources>
 				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>tomcat-maven-plugin</artifactId>
+						<configuration>
+							<url>http://127.0.0.1:8080/manager/text</url>
+							<path>/jblog4</path>
+							<username>admin</username>
+							<password>admin</password>
+						</configuration>
+					</plugin>
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-resources-plugin</artifactId>
@@ -188,17 +188,30 @@
 						</configuration>
 					</plugin>
 				</plugins>
+				<resources>
+					<resource>
+						<directory>${project.basedir}/src/main/resources</directory>
+						<excludes>
+							<exclude>**/*.java</exclude>
+						</excludes>
+					</resource>
+				</resources>
 			</build>
 		</profile>
 	</profiles>
 
 	<build>
-		<sourceDirectory>src/main/java</sourceDirectory>
+		<sourceDirectory>.</sourceDirectory>
 		<plugins>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>tomcat-maven-plugin</artifactId>
 				<configuration>
+					<includes>
+						<include>src/main/java</include>
+						<include>${src.profile.dir}</include>
+					</includes>
+				
 					<url>http://127.0.0.1:8080/manager/text</url>
 					<path>/jblog4</path>
 					<username>admin</username>
