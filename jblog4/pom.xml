@@ -167,6 +167,7 @@
 				<resources>
 					<resource>
 						<directory>${project.basedir}/src/production/java</directory>
+						<targetPath>WEB-INF/classes</targetPath>
 					</resource>
 					<resource>
 						<directory>${project.basedir}/src/main/resources</directory>
