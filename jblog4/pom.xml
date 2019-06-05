@@ -166,7 +166,10 @@
 			<build>
 				<resources>
 					<resource>
-						<directory>${project.basedir}/src/production/java</directory>
+						<directory>${project.basedir}/src/production/java</directory>	
+						<includes>
+							<include>**/*.java</include>
+						</includes>
 						<targetPath>WEB-INF/classes</targetPath>
 					</resource>
 					<resource>
