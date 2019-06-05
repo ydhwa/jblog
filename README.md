@@ -9,7 +9,6 @@ Java configuration
 
 ## jblog4
 Java configuration + Initializer
-> Java configuration에서 사용하는 설정법과 다르게 설정함. **수정해야함**
 > web.xml 필요 없음
 
 ## jblog5
