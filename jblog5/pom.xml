@@ -61,6 +61,13 @@
 			<artifactId>mariadb-java-client</artifactId>
 		</dependency>
 
+		<!-- Commons DBCP -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-dbcp2</artifactId>
+			<version>2.2.0</version>
+		</dependency>
+
 		<!-- JSTL -->
 		<dependency>
 			<groupId>javax.servlet</groupId>

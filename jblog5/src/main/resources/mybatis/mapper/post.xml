@@ -40,7 +40,7 @@ category는 어차피 Unique하게 생성되므로 User 검사는 하지 않음 
 	<![CDATA[
 		select p.title, date_format(p.reg_date, '%Y/%m/%d %H:%i:%s') as regDate
 		from post p, category c
-		where c.no = ${ value }
+		where c.no = #{ value }
 			and p.category_no = c.no
 		order by p.reg_date desc;
 	]]>
@@ -52,7 +52,7 @@ category는 어차피 Unique하게 생성되므로 User 검사는 하지 않음 
 	<![CDATA[
 		select p.no, p.title, p.contents, category_no, date_format(p.reg_date, '%Y/%m/%d %H:%i:%s') as regDate
 		from post p, category c
-		where c.no = ${ categoryNo } and p.category_no = c.no
+		where c.no = #{ categoryNo } and p.category_no = c.no
 		order by p.reg_date desc
 		limit ${ postIndex - 1 }, 1;
 	]]>
