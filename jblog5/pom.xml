@@ -78,6 +78,22 @@
 			<artifactId>tomcat-embed-jasper</artifactId>
 		</dependency>
 	</dependencies>
+	
+	<!-- profiling -->
+	<profiles>
+		<profile>
+			<id>developer</id>
+			<properties>
+				<myActiveProfile>developer</myActiveProfile>
+			</properties>
+		</profile>
+		<profile>
+			<id>production</id>
+			<properties>
+				<myActiveProfile>production</myActiveProfile>
+			</properties>
+		</profile>
+	</profiles>
 
 	<build>
 		<finalName>{$artifactId}</finalName>
